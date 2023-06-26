@@ -1,0 +1,136 @@
+
+#include <stdio.h>
+
+int main() {
+int N,K,P,U,C,D;
+scanf("%d %d %d %d",&N,&K,&P,&U);
+if (U==N)
+{
+    while(P<=(N-K))
+    {
+        P+=K;
+        C++;
+    }
+    C+=1;
+}
+else if (U==1)
+{
+ while(P>K)
+    {
+        P-=K;
+        C++;
+    }
+    C+=1;
+}
+else if (U!=P)
+{
+    if(U>P)
+        D=U-P;
+    else if (U<P)
+       D=P-U;
+    while(D>K)
+    {   
+        D=D-K;
+        C++;
+    }
+    if(K-D<D-1)
+    C+=(K-D)+1;
+    else
+    C+=D;
+    //C+=D;
+    //if D ---> k 
+    //X=K-D if x<D-1 ----> c+=x+1;
+    
+    
+}
+else
+{C=0;}
+printf("%d",C);
+    return 0;
+}
+
+/*2. Switching TV-Channels
+time limit per test0.5 seconds
+memory limit per test256 megabytes
+inputstandard input
+outputstandard output
+Lisa's parents subscribed to a TV package containing N
+ TV channels, numbered from 1
+ to N
+.
+
+There are two buttons for switching channels on the remote control: "+
+" and "−
+".
+
+A short press of button "+
+" switches to the next channel, if the current channel number is less than N
+. If the current channel number is equal to N
+, the TV continues to show that channel. If the button "+
+" is pressed and held for a while and the current TV-channel number is no more than N−K
+, it will switch to K
+ channels forward. Otherwise, a switch to channel N
+ occurs.
+
+Similarly, pressing the button "−
+" shortly switches to the previous channel, if the current channel number is greater than 1
+. If the current channel number equals 1
+, the TV continues to show that channel. If the button "−
+" is pressed and held for some time and the current channel number is greater than K
+, it will switch to K
+ channels backward. Otherwise, a switch to channel 1
+ occurs.
+
+When Lisa turned on the TV, channel P
+ was on. Lisa knows that an interesting program will start soon on channel U
+. Estimate the minimum number of button presses on the TV remote control that Lisa needs to make in order to switch the TV to channel U
+.
+
+Input
+The first line contains an integer N
+ (3≤N≤109
+) which stands for the number of TV channels.
+
+The second line contains an integer K
+ (2≤K<N
+), which is the number of channels which are switched backward or forward when holding the corresponding switch button on the TV-controller.
+
+The third line contains an integer P
+ (1≤P≤N
+), which denotes the channel number that was on TV initially.
+
+The fourth line contains an integer U
+ (1≤U≤N
+), which is the channel number that Lisa wants to switch to.
+
+It should be assumed that P≠U
+.
+
+Output
+You should output a single integer, which stands for the minimum number of times one should press the TV-controller buttons required to switch from channel P
+ to channel U
+.
+
+Scoring
+Solutions that run correctly for P<U
+, N≤100
+ score 24
+ points.
+
+Solutions that run correctly for N≤100
+ score 48
+ points.
+
+INPUT:
+20
+5
+3
+19
+
+OUTPUT:
+4
+
+
+LINK:
+https://codeforces.com/gym/104441/problem/2
+*/
